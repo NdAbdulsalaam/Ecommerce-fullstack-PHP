@@ -13,7 +13,7 @@ Route::middleware(['auth', 'verified', RoleMiddleware::class . ':seller'])->pref
     Route::get('users', [DashboardController::class, 'users'])
     ->name('seller.users');
 
-    Route::get('users/{username}', [DashboardController::class, 'view-user'])
+    Route::get('users/{id}', [DashboardController::class, 'view_user'])
     ->name('seller.view-user');
 
 });

@@ -9,7 +9,7 @@
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">{{ __('Users information') }}</h1>
-<p class="mb-4"><b><i>{{ __('Profile') }}</i></b></p>
+<p class="mb-4"><b><i>{{ __('Users Personal') }}</i></b></p>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -23,32 +23,32 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Username</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th>Start date</th>
-                        <th>Action</th>
+                        <th>Joined On</th>
+                        <th>Last Update</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>Name</th>
-                        <th>Username</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th>Start date</th>
-                        <th>Action</th>
+                        <th>Joined On</th>
+                        <th>Last Update</th>
+                        <th>Actions</th>
                     </tr>
                 </tfoot>
                 <tbody>
                     @foreach($users as $user)
                     <tr>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->username }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->role }}</td>
-                        <td>{{ $user->startdate }}</td>
-                        <td><a href="{{ url($role .'/users/' .$user->username ) }}" class="fa fa-eye text-danger mr-3"></a> <a href="#" class="fa fa-trash text-danger"></a></td>
+                        <td>{{ $user->created_at }}</td>
+                        <td>{{ $user->updated_at }}</td>
+                        <td><a href="{{ url($role .'/users/' .$user->id ) }}" class="fa fa-eye text-danger mr-3"></a> <a href="#" class="fa fa-trash text-danger"></a></td>
                     </tr>
                     @endforeach
                 </tbody>
