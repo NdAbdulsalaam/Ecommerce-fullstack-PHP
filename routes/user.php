@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified', RoleMiddleware::class . ':user'])->prefix('user')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])
-    ->name('dashboard');
+    ->name('user.dashboard');
 
     Route::get('profile', [ProfileController::class, 'edit'])
                ->name('profile.edit');

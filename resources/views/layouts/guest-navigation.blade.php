@@ -21,6 +21,15 @@
                     <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
                         {{ __('Register') }}
                     </x-nav-link>
+
+                    {{-- Display Dasboard Nav link to only logged-in users --}}
+                    @if(auth()->check())
+                        <?php $role = auth()->user()->role; ?>
+                        <x-nav-link :href="route($role . '.dashboard')" :active="request()->routeIs($role. '.dashboard')">
+                             {{ __('Dashboard') }}
+                        </x-nav-link>
+                    @endif
+
                 </div>
             </div>
         </div>
