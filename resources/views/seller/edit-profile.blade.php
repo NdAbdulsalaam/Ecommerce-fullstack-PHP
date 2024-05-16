@@ -57,7 +57,6 @@
                         </select>
                     </div>
 
-
                     <!-- Start Date -->
                     <div class="form-group">
                         <label for="startdate">{{ __('Start Date') }}</label>
