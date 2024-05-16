@@ -12,12 +12,12 @@ class UserProfileContoller extends Controller
 {
     public function view($id){
         $user = User::find($id);
-        return view('seller.view-profile', compact('user'));
+        return view('seller.view-user', compact('user'));
       }
 
       public function edit($id){
         $user = User::find($id);
-        return view('seller.edit-profile', compact('user'));
+        return view('seller.update-user', compact('user'));
       }
 
       public function update($id, Request $request){
@@ -26,6 +26,7 @@ class UserProfileContoller extends Controller
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
             'role' => ['required', 'string', 'max:255'],
+            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $update = User::findOrFail($id);
@@ -33,43 +34,38 @@ class UserProfileContoller extends Controller
         $update->name = $request->input('name');
         $update->username = $request->input('username');
         $update->role = $request->input('role');
+        // $update->password = $request->input('password');
+        // $update->email = $request->input('email');
 
         $update->update($request->all());
 
         return redirect()->back()->with('success', 'User profile updated successfully!');
-        // $update->email = $request->input('email');
       }
-    public function addstaff(){
-        return view('/admin/add-staff');
+    public function create(){
+        return view('seller.add-user');
       }
 
-      public function store(Request $request){
-        $request->validate([
-            'fname' => 'required|max:255',
-            'lname' => 'required|max:255',
-            'role' => 'required|max:255',
-            'position' => 'required|max:255',
-            'office' => 'required|max:255',
-            'age' => 'required|max:255',
-            'startdate' => 'required|max:255',
-            'salary' => 'required|max:255',
-            'email' => 'required|email|unique:users',
-        ]);
-
-        $addstaff = new User();
-        $addstaff->name = $request->input('fname'). ' ' . $request->input('lname');
-        $addstaff->role = $request->input('role');
-        $addstaff->position = $request->input('position');
-        $addstaff->office = $request->input('office');
-        $addstaff->age = $request->input('age');
-        $addstaff->startdate = $request->input('startdate');
-        $addstaff->salary = $request->input('salary');
-        $addstaff->email = $request->input('email');
-        $addstaff->password = Hash::make($request->input('lname'));
-        $addstaff->save();
-
-        return redirect()->back()->with('success', 'Staff added successfully!');
+      public function store(Request $request)
+      {
+          $request->validate([
+              'fname' => ['required', 'string', 'max:255'],
+              'lname' => ['required', 'string', 'max:255'],
+              'username' => ['required', 'string', 'max:255'],
+              'role' => ['required', 'string', 'max:255'],
+              'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+          ]);
+      
+          $add = new User();
+          $add->name = $request->input('fname') . ' ' . $request->input('lname');
+          $add->username = $request->input('username');
+          $add->role = $request->input('role');
+          $add->email = strtolower($request->input('email'));
+          $add->password = Hash::make($request->input('lname'));
+          $add->save();
+      
+          return redirect()->back()->with('success', 'User added successfully! Default password is Your Last Name.');
       }
+      
 
 }
 

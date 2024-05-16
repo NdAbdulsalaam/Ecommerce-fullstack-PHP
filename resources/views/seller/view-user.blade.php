@@ -10,7 +10,7 @@
 
 <div>
     <p class="mb-4 float-left"><b><i>{{ __('Personal Profile') }}</i></b></p>
-    <a href="{{ route('seller.edit-profile', $user->id) }}" class="float-right"><b>Edit</b></a>
+    <a href="{{ route('seller.update-user', $user->id) }}" class="float-right"><b>Edit</b></a>
 </div><br><br>
 
 
@@ -44,7 +44,7 @@
                         <td>{{ $user->updated_at }}</td>
                     </tr>
             </table>
-            <a href="{{ route('seller.edit-profile', $user->id) }}" class="btn btn-danger my-3 float-right"><b>Edit</b></a>
+            <a href="{{ route('seller.update-user', $user->id) }}" class="btn btn-danger my-3 float-right"><b>Edit</b></a>
         </div>
     </div>
 </div>

@@ -14,7 +14,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-danger d-inline float-left"><b>{{ __('Nuyola Market') }}</b></h6>
-        <a href="{{ url('') }}"><button class="btn btn-danger float-right"><i class="fa fa-plus mr-2"></i>{{ __('Add User') }}</button></a>
+        <a href="{{ route('seller.add-user') }}"><button class="btn btn-danger float-right"><i class="fa fa-plus mr-2"></i>{{ __('Add User') }}</button></a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -47,7 +47,7 @@
                         <td>{{ $user->role }}</td>
                         <td>{{ $user->created_at }}</td>
                         <td>{{ $user->updated_at }}</td>
-                        <td><a href="{{ route('seller.view-profile', $user->id ) }}" class="fa fa-eye text-danger mr-3"></a> <a href="#" class="fa fa-trash text-danger"></a></td>
+                        <td><a href="{{ route('seller.view-user', $user->id ) }}" class="fa fa-eye text-danger mr-3"></a> <a href="#" class="fa fa-trash text-danger"></a></td>
                     </tr>
                     @endforeach
                 </tbody>

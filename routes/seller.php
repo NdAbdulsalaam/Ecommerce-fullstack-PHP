@@ -15,13 +15,19 @@ Route::middleware(['auth', 'verified', RoleMiddleware::class . ':seller'])->pref
     ->name('seller.users');
 
     Route::get('users/{id}', [UserProfileContoller::class, 'view'])
-    ->name('seller.view-profile');
+    ->name('seller.view-user');
 
-    Route::get('edit/{id}', [UserProfileContoller::class, 'edit'])
-    ->name('seller.edit-profile');
+    Route::get('register', [UserProfileContoller::class, 'create'])
+    ->name('seller.add-user');
+
+    Route::post('register', [UserProfileContoller::class, 'store'])
+    ->name('seller.add-user');
+
+    Route::get('update/{id}', [UserProfileContoller::class, 'edit'])
+    ->name('seller.update-user');
 
     Route::put('update/{id}', [UserProfileContoller::class, 'update'])
-    ->name('seller.update-profile');
+    ->name('seller.update-user');
 
 
 
