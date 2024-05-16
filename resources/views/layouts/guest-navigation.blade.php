@@ -15,12 +15,17 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                        {{ __('Login') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                        {{ __('Register') }}
-                    </x-nav-link>
+
+                    {{-- Display Login & Register Nav link to vistors only --}}
+                    @if(!auth()->check())
+                        <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                            {{ __('Login') }}
+                        </x-nav-link>
+                            
+                        <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                            {{ __('Register') }}
+                        </x-nav-link>
+                    @endif
 
                     {{-- Display Dasboard Nav link to only logged-in users --}}
                     @if(auth()->check())
