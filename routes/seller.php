@@ -10,4 +10,10 @@ Route::middleware(['auth', 'verified', RoleMiddleware::class . ':seller'])->pref
     Route::get('dashboard', [DashboardController::class, 'index'])
     ->name('seller.dashboard');
 
+    Route::get('users', [DashboardController::class, 'users'])
+    ->name('seller.users');
+
+    Route::get('users/{username}', [DashboardController::class, 'view-user'])
+    ->name('seller.view-user');
+
 });
