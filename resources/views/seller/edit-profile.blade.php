@@ -12,7 +12,8 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger">{{ __('Nuyola Market') }}</h6>
+            <h2 class="m-0 font-weight-bold text-danger d-inline float-left"><b> {{ $user->name }}</h3>
+            <h6 class="d-inline float-right text-danger"><b><a href="{{ route('seller.users') }}">{{ __('<-- Back') }}</a></b></h6>
         </div>
         <div class="card-body">
             <div class="mx-auto" style="max-width: 400px;"> <!-- Centering content within a max-width container -->

@@ -5,7 +5,6 @@
 
 @section('content')
 <div class="container-fluid">
-    <?php $role = auth()->user()->role; ?>
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">{{ __('Users information') }}</h1>
@@ -48,7 +47,7 @@
                         <td>{{ $user->role }}</td>
                         <td>{{ $user->created_at }}</td>
                         <td>{{ $user->updated_at }}</td>
-                        <td><a href="{{ url($role .'/users/' .$user->id ) }}" class="fa fa-eye text-danger mr-3"></a> <a href="#" class="fa fa-trash text-danger"></a></td>
+                        <td><a href="{{ route('seller.view-profile', $user->id ) }}" class="fa fa-eye text-danger mr-3"></a> <a href="#" class="fa fa-trash text-danger"></a></td>
                     </tr>
                     @endforeach
                 </tbody>
