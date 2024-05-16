@@ -15,6 +15,8 @@
     <link href="{{ asset('dashboard/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 </head>
 <body id="page-top">
+    <?php $role = auth()->user()->role; ?>
+    
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -41,7 +43,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Quick Actions
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -49,12 +51,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Staff Informations</span>
+                    <span>Seller Information</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Staff Informations:</h6>
-                        <a class="collapse-item" href="{{ url('dashboard/staffs') }}">Staffs</a>
+                        <h6 class="collapse-header">Actions</h6>
+                        <a class="collapse-item" href="{{ route($role . '.staffs') }}">All Sellers</a>
                         <a class="collapse-item" href="#">Edit</a>
                     </div>
                 </div>
