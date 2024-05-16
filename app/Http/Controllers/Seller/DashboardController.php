@@ -15,9 +15,4 @@ class DashboardController extends Controller
         $users = User::all();
         return view('seller.users', compact('users'));
       }
-
-      public function view_user($id){
-        $user = User::find($id);
-        return view('seller.view-user', compact('user'));
-      }
 }

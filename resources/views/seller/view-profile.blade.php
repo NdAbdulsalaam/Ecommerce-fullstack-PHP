@@ -29,12 +29,8 @@
                         <td>{{ $user->name }}</td>
                     </tr>
                     <tr>
-                        <th></th>
-                        <td>{{ $user->position }}</td>
-                    </tr>
-                    <tr>
                         <th>Username</th>
-                        <td>{{ $user->office }}</td>
+                        <td>{{ $user->username }}</td>
                     </tr>
                     <tr>
                         <th>Email</th>
