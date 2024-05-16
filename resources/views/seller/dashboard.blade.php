@@ -1,4 +1,4 @@
-@extends('/layouts.master')
+@extends('/layouts.seller-master')
 @section('title', 'Seller Dashboard')
 
 
