@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Seller;
 
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
-use illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
 

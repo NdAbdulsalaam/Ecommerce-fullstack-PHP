@@ -16,7 +16,7 @@
     <link href="{{ asset('dashboard/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 </head>
 <body id="page-top">
-    <?php $role = auth()->user()->role; ?>
+    {{-- <?php $role = auth()->user()->role; ?> --}}
     
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -57,8 +57,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Actions</h6>
-                        <a class="collapse-item" href="{{ route($role . '.users') }}">All Users</a>
-                        <a class="collapse-item" href="#">Edit</a>
+                        <a class="collapse-item" href="{{ route('seller.users') }}">All Users</a>
+                        <a class="collapse-item" href="{{ route('seller.add-user') }}">Add User</a>
                     </div>
                 </div>
             </li>
