@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified', RoleMiddleware::class . ':seller'])->pref
     Route::put('update/{id}', [UserProfileContoller::class, 'update'])
     ->name('seller.update-user');
 
-
+    Route::delete('delete/{id}', [UserProfileContoller::class, 'destroy'])
+    ->name('seller.delete-user');
 
 });
