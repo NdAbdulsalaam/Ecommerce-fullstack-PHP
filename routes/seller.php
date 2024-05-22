@@ -17,19 +17,19 @@ Route::middleware(['auth', 'verified', RoleMiddleware::class . ':seller'])->pref
     Route::get('users/{id}', [UserProfileContoller::class, 'view'])
     ->name('seller.view-user');
 
-    Route::get('register', [UserProfileContoller::class, 'create'])
+    Route::get('user/register', [UserProfileContoller::class, 'create'])
     ->name('seller.add-user');
 
-    Route::post('register', [UserProfileContoller::class, 'store'])
+    Route::post('user/register', [UserProfileContoller::class, 'store'])
     ->name('seller.add-user');
 
-    Route::get('update/{id}', [UserProfileContoller::class, 'edit'])
+    Route::get('user/update/{id}', [UserProfileContoller::class, 'edit'])
     ->name('seller.update-user');
 
-    Route::put('update/{id}', [UserProfileContoller::class, 'update'])
+    Route::put('user/update/{id}', [UserProfileContoller::class, 'update'])
     ->name('seller.update-user');
 
-    Route::delete('delete/{id}', [UserProfileContoller::class, 'destroy'])
+    Route::delete('userdelete/{id}', [UserProfileContoller::class, 'destroy'])
     ->name('seller.delete-user');
 
 });

@@ -12,7 +12,30 @@ class SellersTableSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
+    {
+        // Check if the staff table is empty
+        if (DB::table('sellers')->count() == 0) {
+            $this->seedSeller();
+        } else {
+            // Prompt for confirmation if the table is not empty
+            if ($this->command->confirm('The seller table is not empty. Do you wish to continue and overwrite the existing data?', false)) {
+                // Truncate the table before seeding
+                DB::table('sellers')->truncate();
+                $this->seedSeller();
+            } else {
+                $this->command->info('Seeding was cancelled.');
+            }
+        }
+    }
+
+    /**
+    * Seed the staff table with sample data.
+    *
+    * @return void
+    */
+
+    public function seedSeller(): void
     {
         DB::table('sellers')->truncate(); //for cleaning earlier data to avoid duplicate entries
         // Define sample seller data

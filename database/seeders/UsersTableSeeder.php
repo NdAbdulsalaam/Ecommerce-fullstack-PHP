@@ -12,7 +12,31 @@ class UsersTableSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+
+     public function run()
+     {
+         // Check if the staff table is empty
+         if (DB::table('users')->count() == 0) {
+             $this->seedUser();
+         } else {
+             // Prompt for confirmation if the table is not empty
+             if ($this->command->confirm('The user table is not empty. Do you wish to continue and overwrite the existing data?', false)) {
+                 // Truncate the table before seeding
+                 DB::table('users')->truncate();
+                 $this->seedUser();
+             } else {
+                 $this->command->info('Seeding was cancelled.');
+             }
+         }
+     }
+ 
+     /**
+     * Seed the staff table with sample data.
+     *
+     * @return void
+     */
+
+    public function seedUser(): void
     {
         DB::table('users')->truncate(); //for cleaning earlier data to avoid duplicate entries
         DB::table('users')->insert([
