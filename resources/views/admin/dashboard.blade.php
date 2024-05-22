@@ -1,20 +1,18 @@
-@extends('layouts.admin-master')
-@section('title', 'Admin Dashboard')
+@extends('/layouts.seller-master')
+@section('title', 'Seller Dashboard')
 
 
 @section('content')
 <div id="content">
 
-<?php
-    use Illuminate\Support\Facades\DB;
-?>
+
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Admin Dashboard</h1>
+        <h1 class="h3 mb-0 text-gray-800">Seller Dashboard</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
     </div>
@@ -29,15 +27,8 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                All Active Staffs
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <?php
-                                    #Count and display number of registered users
-                                    $users = DB::table('users')->count();
-                                    echo $users;
-                                ?>
-                            </div>
+                                Earnings (Monthly)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -54,14 +45,8 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Admins</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <?php
-                                    #Count and display the number of registered Admin(s) only
-                                    $admin = DB::table('users')->where('role', 'admin')->count();
-                                    echo $admin;
-                                ?>
-                            </div>
+                                Earnings (Annual)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -322,7 +307,7 @@
                 <div class="card-body">
                     <div class="text-center">
                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                            src="{{ asset('dashboard/img/undraw_posting_photo.svg') }}" alt="...">
+                        src="{{ asset('dashboard/img/undraw_posting_photo.svg') }}"  alt="...">
                     </div>
                     <p>Add some quality, svg illustrations to your project courtesy of <a
                             target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
