@@ -15,8 +15,6 @@
     <link href="{{ asset('dashboard/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 </head>
 <body id="page-top">
-    <?php $role = auth()->user()->role; ?>
-    
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -43,21 +41,33 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Quick Actions
+                Interface
             </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('dashboard/view-profile') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>View Profile</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('dashboard/edit-profile') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Edit Profile</span></a>
+            </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Seller Information</span>
+                    <span>Staff Informations</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Actions</h6>
-                        <a class="collapse-item" href="{{ route($role . '.dashboard') }}">All Sellers</a>
-                        <a class="collapse-item" href="#">Edit</a>
+                        <h6 class="collapse-header">Profile:</h6>
+                        <a class="collapse-item" href="{{ url('dashboard/view-profile') }}">View Profile</a>
+                        <a class="collapse-item" href="#">Edit Profile</a>
                     </div>
                 </div>
             </li>
@@ -253,7 +263,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('dashboard/img/undraw_profile_1.svg') }}"
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -265,7 +275,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('dashboard/img/undraw_profile_2.svg') }}"
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -277,7 +287,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('dashboard/img/undraw_profile_3.svg') }}"
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -310,9 +320,9 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                                <img class="img-profile rounded-circle" src="{{ asset('dashboard/img/undraw_profile.svg') }}">
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
                             </a>
-
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -392,8 +402,5 @@
     <script src="{{ asset('dashboard/vendor/chart.js/Chart.min.js') }}"></script>
     <script src="{{ asset('dashboard/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('dashboard/js/demo/chart-pie-demo.js') }}"></script>
-    <script src="{{ asset('dashboard/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('dashboard/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('dashboard/js/demo/datatables-demo.js') }}"></script>
 </body>
 </html>
